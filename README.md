@@ -16,6 +16,7 @@
 
 > **A signature you can't repudiate, from a key that no longer exists.**
 > Protocol-C turns any dict into a signed, append-only commitment. Each commitment gets its own one-shot signing key derived from fresh CSPRNG entropy — the key signs exactly once, then its private half is zeroed from memory. What's left on disk is a record that anyone can verify and nobody can forge or alter after the fact.
+<img width="1562" height="498" alt="image" src="https://github.com/user-attachments/assets/d6245182-8e7c-4a06-8f35-25a747399b3e" />
 
 <p align="center">
   <a href="#the-problem">Problem</a> ·
