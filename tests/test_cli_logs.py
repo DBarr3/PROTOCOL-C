@@ -52,6 +52,19 @@ def test_logs_verify_flags_tamper(tmp_path):
     assert code == 1  # tamper detected -> nonzero exit
 
 
+def test_logs_verify_flags_stripped_signature(tmp_path):
+    log = _seed_log(tmp_path)
+    # An attacker strips the signature off a real entry — this is tampering and
+    # must be flagged invalid, NOT silently skipped like a system marker.
+    with open(log, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps({"order_id": "stripped", "phase": "DECISION_COMMITMENT",
+                             "data": {"x": 1}, "signature": {}}) + "\n")
+    code, out = _run(["logs", "--log", str(log), "--verify"])
+    data = json.loads(out)
+    assert data["invalid"] >= 1
+    assert code == 1
+
+
 def test_logs_verify_skips_system_rotation_entry(tmp_path):
     log = _seed_log(tmp_path)
     # A LOG_ROTATION marker legitimately carries no signature; it must NOT be

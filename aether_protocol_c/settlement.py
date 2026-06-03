@@ -183,7 +183,8 @@ class QuantumSettlementRecord:
         except Exception as exc:
             raise SettlementError(f"Failed to sign settlement: {exc}") from exc
 
-        assert ephemeral_key.is_destroyed, "CRITICAL: Key not destroyed after signing"
+        if not ephemeral_key.is_destroyed:
+            raise SettlementError("CRITICAL: Key not destroyed after signing")
 
         return signable, signature, settlement
 

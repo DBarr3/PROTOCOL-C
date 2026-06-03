@@ -207,7 +207,7 @@ Read this part. "Quantum-safe" here is a **temporal** argument, **not** post-qua
 - secp256k1 ECDSA is **not** quantum-resistant. A large fault-tolerant quantum computer running Shor's algorithm could recover a private key from its public key.
 - Protocol-C's defense is that **the private key no longer exists.** It's destroyed milliseconds after signing — long before any such machine (which does not exist today, and which needs on the order of thousands of logical qubits) could attack it. You can't steal a key from the future if it was zeroed in the past.
 - This protects the **signing key**, not the signature scheme itself. The scheme is classical. If your threat model requires standardized post-quantum signatures (e.g. ML-DSA / SLH-DSA), Protocol-C is **not** a drop-in for that; it's a forward-secret, tamper-evident commitment layer that happens to age out its keys faster than the attack.
-- The quantum-*hardware* entropy path is a separate, private project. This public package is CSPRNG-only; its quantum-safety is purely the temporal-margin argument above.
+- Hardware entropy sources are out of scope for this library. This public package is CSPRNG-only; its quantum-safety is purely the temporal-margin argument above.
 
 In short: **strong, auditable, forward-secret commitments today** — with an explicit, documented temporal margin against tomorrow's quantum attacks. No magic, no overclaiming.
 

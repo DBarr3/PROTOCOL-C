@@ -174,6 +174,9 @@ class AuditLog:
         self._max_file_size = max_file_size_mb * 1024 * 1024
         self._db_path = self._path.with_suffix(".db")
 
+        # Set before _init_db so close()/__del__ are safe even if init fails.
+        self._conn = None
+
         # Initialise SQLite index
         self._init_db()
 
@@ -331,6 +334,7 @@ class AuditLog:
 
         # Close existing SQLite connection
         self._conn.close()
+        self._conn = None
 
         # Build archive names
         archived_jsonl = self._path.parent / f"{self._path.stem}_{ts}.jsonl"

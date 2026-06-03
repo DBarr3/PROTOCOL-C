@@ -169,7 +169,8 @@ class QuantumExecutionAttestation:
         except Exception as exc:
             raise ExecutionError(f"Failed to sign attestation: {exc}") from exc
 
-        assert ephemeral_key.is_destroyed, "CRITICAL: Key not destroyed after signing"
+        if not ephemeral_key.is_destroyed:
+            raise ExecutionError("CRITICAL: Key not destroyed after signing")
 
         return signable, signature, attestation
 

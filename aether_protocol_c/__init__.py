@@ -125,8 +125,8 @@ def commit(
 
     # Optionally log
     if log_path:
-        audit = AuditLog(log_path)
-        audit.append_commitment(c_dict, c_sig)
+        with AuditLog(log_path) as audit:
+            audit.append_commitment(c_dict, c_sig)
 
     # Verify
     verified = verify_signature(c_dict, c_sig)

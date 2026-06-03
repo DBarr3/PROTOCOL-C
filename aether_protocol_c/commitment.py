@@ -255,8 +255,9 @@ class QuantumDecisionCommitment:
         except Exception as exc:
             raise CommitmentError(f"Failed to sign commitment: {exc}") from exc
 
-        # Verify key is destroyed
-        assert ephemeral_key.is_destroyed, "CRITICAL: Key not destroyed after signing"
+        # Verify key is destroyed (explicit raise — not assert, which -O strips)
+        if not ephemeral_key.is_destroyed:
+            raise CommitmentError("CRITICAL: Key not destroyed after signing")
 
         return signable, signature, commitment
 

@@ -5,8 +5,8 @@ CSPRNG seed generation for Protocol-C.
 
 Protocol-C derives every ephemeral signing key from a fresh, cryptographically
 secure random seed produced by the operating system via :mod:`secrets`. There
-is no external entropy source and no third-party dependency. The
-quantum-hardware entropy variant is a separate, private project.
+is no external entropy source and no third-party dependency. Hardware
+entropy sources are outside the scope of this library.
 """
 
 from __future__ import annotations

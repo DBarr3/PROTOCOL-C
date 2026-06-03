@@ -139,5 +139,5 @@ and its signature scheme is classical secp256k1. Its quantum-safety is the
 temporal argument above, spelled out in full in [SECURITY.md](../SECURITY.md).
 Read that before relying on the word "quantum-safe."
 
-The quantum-hardware entropy variant is a separate, private project. This public
+Hardware entropy sources are outside the scope of this library. This public
 package is CSPRNG-only.

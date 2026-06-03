@@ -179,12 +179,12 @@ def _cmd_logs(args, out) -> int:
     invalid = 0
     if args.verify:
         for e in entries:
-            # System entries (e.g. LOG_ROTATION markers) carry no signature by
-            # design — skip them so they don't count as tampering.
-            if e.get("phase") == "LOG_ROTATION" or not e.get("signature"):
-                if not e.get("_corrupt"):
-                    e["_verified"] = "skipped"
-                    continue
+            # Only true system markers (LOG_ROTATION) legitimately carry no
+            # signature — skip those. Any OTHER entry missing a signature is
+            # treated as tampering (e.g. a stripped signature) and counted invalid.
+            if e.get("phase") == "LOG_ROTATION":
+                e["_verified"] = "skipped"
+                continue
             data = e.get("data", e.get("commitment", e))
             sig = e.get("signature")
             ok = bool(sig) and verify(data, sig)
