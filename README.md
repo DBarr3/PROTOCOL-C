@@ -198,7 +198,7 @@ Each phase lands in the audit log under `DECISION_COMMITMENT`, `EXECUTION_ATTEST
 | **P4** | Perfect forward secrecy | each phase/commitment uses an independent seed + key pair |
 | **P5** | Tamper detection | any change to the committed bytes invalidates the signature |
 
-See [SECURITY.md](SECURITY.md) for the full threat model, assumptions, and how to report a vulnerability.
+See [SECURITY.md](SECURITY.md) for the full threat model, assumptions, and how to report a vulnerability. The full technical white paper — the CVE-2025-59536 problem, the design, and honest scope — is in [`docs/WHITEPAPER.md`](docs/WHITEPAPER.md).
 
 ## Honest about "quantum-safe"
 
