@@ -251,6 +251,7 @@ If this gave your audit trail teeth, **drop a star** — it's how other people f
 <div align="center">
 
 Built by **Brandon Barrante** · [Aether](https://aethersystems.net)
+<img width="2752" height="1536" alt="image" src="https://github.com/user-attachments/assets/66047e92-73d4-47ad-9da7-5441b196352a" />
 
 *A signature you can't repudiate, from a key that no longer exists.*
 
