@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use Aether Protocol-C in your work, please cite it as below."
+title: "Aether Protocol-C: forward-secret, tamper-evident data commitments"
+abstract: >-
+  A pure-Python, dependency-free library for creating cryptographically signed,
+  tamper-evident commitments over structured data. Each commitment is signed by
+  a single-use secp256k1 ECDSA key (RFC 6979 deterministic-k) whose private half
+  is destroyed immediately after signing, giving perfect forward secrecy and a
+  documented temporal-safety margin against future quantum attacks. Records are
+  written to an append-only JSONL audit log with SQLite indexing.
+type: software
+authors:
+  - family-names: Barrante
+    given-names: Brandon
+    affiliation: Aether
+license: Apache-2.0
+repository-code: "https://github.com/DBarr3/protocol-c"
+url: "https://github.com/DBarr3/protocol-c"
+version: 0.1.0
+date-released: 2026-06-03
+keywords:
+  - cryptography
+  - commitment scheme
+  - ecdsa
+  - secp256k1
+  - forward secrecy
+  - audit trail
+  - tamper-evident

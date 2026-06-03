@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aether-protocol-c"
+version = "0.1.0"
+description = "CSPRNG Quantum-Safe Commitment Protocol -- cryptographically signed, auditable data commitments"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Brandon Barrante"},
+    {name = "Aether"},
+]
+keywords = ["cryptography", "commitment", "quantum-safe", "ecdsa", "audit", "signing", "tamper-evident"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security :: Cryptography",
+]
+
+# Zero mandatory dependencies -- stdlib only
+dependencies = []
+
+[project.optional-dependencies]
+timestamp = ["pyasn1>=0.5"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+aether-protocol-c = "aether_protocol_c.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/DBarr3/protocol-c"
+Repository = "https://github.com/DBarr3/protocol-c"
+Issues = "https://github.com/DBarr3/protocol-c/issues"
+Documentation = "https://github.com/DBarr3/protocol-c/blob/main/docs/how-it-works.md"
+Changelog = "https://github.com/DBarr3/protocol-c/blob/main/CHANGELOG.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

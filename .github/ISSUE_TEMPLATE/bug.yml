@@ -1,0 +1,40 @@
+name: Bug report
+description: Something isn't working as documented.
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Do not** use this form for security
+        vulnerabilities — see [SECURITY.md](../blob/main/SECURITY.md) for private
+        reporting.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: A clear description of the bug and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal code or commands that trigger the bug.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Protocol-C version
+      placeholder: "0.1.0 (or git SHA)"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version & OS
+      placeholder: "3.11 on Ubuntu 24.04"
+    validations:
+      required: true

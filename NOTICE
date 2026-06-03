@@ -1,0 +1,20 @@
+aether-protocol-c
+Copyright 2026 Brandon Barrante / Aether
+
+This product includes software developed at Aether (https://aethersystems.net).
+
+Licensed under the Apache License, Version 2.0 (the "License").
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+
+------------------------------------------------------------------------------
+Cryptographic implementation note
+------------------------------------------------------------------------------
+The secp256k1 ECDSA signer in `aether_protocol_c/ephemeral_signer.py` is an
+original, pure-Python implementation written for auditability. It uses the
+same curve parameters as the secp256k1 standard (also used by Bitcoin) and
+RFC 6979 deterministic-k nonce generation. It depends on no third-party
+cryptography library.
+
+This software is provided for engineering and research use. See SECURITY.md
+for the threat model and the precise meaning of "quantum-safe" in this
+project (a temporal-safety argument, not post-quantum cryptography).
